@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <script src="/reactivity/dist/reactivity.global.js"></script>
+    <script>
+        // effect 代表的是副作用，如果次函数依赖的数据发送变化了，会重新执行
+        // reactive 将数据变成响应式 proxy
+
+        // const {effect, reactive} = VueReactivity
+        // const data = {name:'zf', age: 13, address:{num:517}}
+        // const state = reactive(data)
+        // const state2 = reactive(data)
+        // console.log(state2 === state)
+
+
+        // shallowReactive, readonly,shallowReadonly
+        // readonly 不能改内部元素
+        // shallowReactive 浅层的reactive // 对象里面的对象不会被proxy
+        // 都是基于reactive
+
+        // effect(()=>{ // 此effect函数会先执行一次，对响应式数据取值(取值的过程数据会依赖于当前的effect)
+        //     app.innerHTML = state.name + '今年' + state.age + '岁了'
+        // })
+        // // 稍后name和age变化会重新执行effect函数
+        // setTimeout(()=>{
+        //     state.age = 14;
+        // },1000)
+    </script>
+    <div id="app"></div>
+    <h1>My Vue3</h1>
+    <h1>vue3+ts+koa</h1>
+</body>
+</html>

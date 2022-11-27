@@ -1,0 +1,3 @@
+# .gitignore
+# git push 排除一些文件
+node_modules/

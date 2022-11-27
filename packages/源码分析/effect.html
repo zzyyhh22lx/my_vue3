@@ -1,0 +1,25 @@
+<body>
+    <div id="app"></div>
+    
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.2.37/vue.global.js"></script>
+
+    <script>
+// 如果之前了解过 Vue2 的响应式原理，那么对于 Watcher 你一定不会陌生。它是 Vue2 响应式系统中的核心之一，无论是响应式数据，还是 computed 计算属性，watch 监听器，内部都是用了 Watcher。简单来说，它就是把需要用户手动执行的逻辑进行了封装，控制权从用户手中转移到了框架层面，从而实现了数据变化，页面自动更新的响应式系统。
+// Vue3 中的 effect 方法的作用和 Watcher 一样。
+
+// effect响应式系统监听属性
+        const { reactive, effect } = Vue
+        const person = { name: 'kw', age: 18 }
+        const state = reactive(person)
+
+        // effect 方法接收一个函数作为参数。
+        // 副作用函数，会影响其他函数执行，执行时机：一是页面首次渲染时，二是它依赖的数据更新时。
+        effect(() => {
+          app.innerHTML = 'Hello! ' + state.name
+        })
+
+        setTimeout(() => {
+          state.name = 'zk'
+        }, 1000)
+    </script>
+</body>
